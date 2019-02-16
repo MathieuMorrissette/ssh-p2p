@@ -18,7 +18,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/nobonobo/ssh-p2p/signaling"
-	"github.com/pions/"
+	"github.com/pions/webrtc"
 	"github.com/pions/webrtc/pkg/datachannel"
 	"github.com/pions/webrtc/pkg/ice"
 )
