@@ -18,7 +18,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/nobonobo/ssh-p2p/signaling"
-	"github.com/pions/webrtc"
+	"github.com/pions/"
 	"github.com/pions/webrtc/pkg/datachannel"
 	"github.com/pions/webrtc/pkg/ice"
 )
@@ -194,7 +194,7 @@ func serve(ctx context.Context, key, addr string) {
 	log.Println("server started")
 	for v := range pull(ctx, key) {
 		log.Printf("info: %#v", v)
-		pc, err := webrtc.New(defaultRTCConfiguration)
+		pc, err := webrtc.NewRTCPeerConnection(defaultRTCConfiguration)
 		if err != nil {
 			log.Println("rtc error:", err)
 			continue
@@ -260,7 +260,7 @@ func serve(ctx context.Context, key, addr string) {
 func connect(ctx context.Context, key string, sock net.Conn) {
 	id := uuid.New().String()
 	log.Println("client id:", id)
-	pc, err := webrtc.New(defaultRTCConfiguration)
+	pc, err := webrtc.NewRTCPeerConnection(defaultRTCConfiguration)
 	if err != nil {
 		log.Println("rtc error:", err)
 		return
